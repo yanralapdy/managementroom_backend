@@ -6,7 +6,7 @@ const customer = models.customers;
 exports.showCheckin = async (req, res) => {
   const find = await room.findAll({
     attributes: ['id', 'name'],
-    order: ['id', 'ASC'],
+    order: [['id', 'ASC']],
     include: [
       {
         model: checkin,

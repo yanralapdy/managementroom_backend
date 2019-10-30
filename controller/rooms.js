@@ -4,7 +4,7 @@ const rooms = models.rooms;
 exports.showAllRoom = async (req, res) => {
   const find = await rooms.findAll({
     attributes: ['id', 'name'],
-    order: ['id', 'ASC'],
+    order: [['id', 'ASC']],
   });
   res.send(find);
 };
