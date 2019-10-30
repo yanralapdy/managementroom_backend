@@ -33,7 +33,7 @@ module.exports = {
         allowNull: false,
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal(
-          'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+          'CURRENT_TIMESTAMP',
         ),
       },
     });
