@@ -23,7 +23,7 @@ module.exports = {
         email: 'lor@gmail.com',
         password: '1234',
         name: 'lor han',
-        image: 'https://cdn.myanimelist.net/images/userimages/40741.jpg',
+        image: 'https://cdn130.picsart.com/272333719020211.png?r1024x1024',
       },
     ]);
   },

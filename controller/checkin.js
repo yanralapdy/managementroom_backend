@@ -12,6 +12,7 @@ exports.showCheckin = async (req, res) => {
         model: checkin,
         as: 'order',
         required: false,
+        where: {is_booked: true},
         include: [
           {
             model: customer,
