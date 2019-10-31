@@ -84,7 +84,7 @@ exports.showFavourite = async (req, res) => {
 
 //User
 exports.showAllUser = (req, res) => {
-  users.findAll().then(result => res.send(result));
+  admins.findAll().then(result => res.send(result));
 };
 
 //MyWebtoon Menu
