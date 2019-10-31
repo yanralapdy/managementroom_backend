@@ -2,7 +2,7 @@ const models = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const webtoons = models.webtoons;
-const users = models.users;
+const users = models.admins;
 const favourites = models.favourites;
 const episodes = models.episodes;
 const images = models.images;
@@ -84,7 +84,7 @@ exports.showFavourite = async (req, res) => {
 
 //User
 exports.showAllUser = (req, res) => {
-  admins.findAll().then(result => res.send(result));
+  users.findAll().then(result => res.send(result));
 };
 
 //MyWebtoon Menu
