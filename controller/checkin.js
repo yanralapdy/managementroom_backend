@@ -11,14 +11,34 @@ exports.showCheckin = async (req, res) => {
       {
         model: checkins,
         as: 'order',
+        where: {is_booked: true, is_done: false},
         required: false,
-        where: {is_booked: true},
-        include: [
+         include: [
           {
             model: customers,
             as: 'customerId',
           },
         ],
+      },
+    ],
+  });
+  res.send(find);
+};
+
+exports.checkinLogs = async (req, res) => {
+  const find = await checkins.findAll({
+    order: [['id', 'ASC']],
+    include: [
+      {
+        model: rooms,
+        as: 'roomId',
+        attributes: ['name']
+        // where: {is_booked: true},
+      },
+      {
+        model: customers,
+        as: 'customerId',
+        attributes: ['name']
       },
     ],
   });
@@ -57,7 +77,7 @@ exports.checkin = (req, res) => {
     );
 };
 
-exports.updateCustomer = (req, res) => {
+exports.checkout = (req, res) => {
   const {id} = req.params;
   checkins
     .update(req.body, {where: {id}})

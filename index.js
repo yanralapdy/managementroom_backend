@@ -42,9 +42,10 @@ app.group('/api/v1', router => {
   //
   //
   //checkin
+  router.get('/checkin/logs', authenticated, CheckinController.checkinLogs)
   router.get('/checkins', authenticated, CheckinController.showCheckin);
-  // router.post('/customer', authenticated, CustomerController.addCustomer);
-  // router.put('/customer/:id', authenticated, CustomerController.updateCustomer);
+  router.post('/checkin', authenticated, CheckinController.checkin);
+  router.put('/checkout/:id', authenticated, CheckinController.checkout);
   //
   router.get('/webtoon', TodoController.findToonTitle);
   router.get('/webtoonfav/:id', TodoController.showFavourite);
@@ -127,5 +128,5 @@ app.group('/api/v1', router => {
   );
 });
 
-// app.listen(port, () =>  console.log(`Listening on port ${port}!`));
-app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port port!`)});
+app.listen(port, () =>  console.log(`Listening on port ${port}!`));
+// app.listen(process.env.PORT||9876, function(){ console.log(`Listening on port port!`)});

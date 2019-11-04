@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   rooms.associate = function(models) {
     // associations can be defined here
     rooms.hasMany(models.orders, {
-      foreignKey: 'id',
+      foreignKey: 'room',
       as: 'order',
     });
   };
