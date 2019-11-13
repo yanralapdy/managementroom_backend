@@ -40,7 +40,7 @@ app.group('/api/v1', router => {
   router.get('/customers', authenticated, CustomerController.showAllCustomers);
   router.post('/customer', authenticated, CustomerController.addCustomer);
   router.put('/customer/:id', authenticated, CustomerController.updateCustomer);
-  router.delete('/room/:id', authenticated, CustomerController.deleteCustomer)
+  router.delete('/customer/:id', authenticated, CustomerController.deleteCustomer)
   //
   //
   //checkin
