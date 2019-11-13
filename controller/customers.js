@@ -57,3 +57,13 @@ exports.updateCustomer = (req, res) => {
       });
     });
 };
+
+exports.deleteCustomer = (req, res) => {
+  const {id} = req.params;
+  customers.destroy({where: {id}}).catch(() => {
+    res.send({
+      message: 'failed',
+      reason: 'the data is not exist'
+    })
+  })
+};

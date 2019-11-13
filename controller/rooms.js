@@ -54,3 +54,13 @@ exports.updateRoom = (req, res) => {
       });
     });
 };
+
+exports.deleteRoom = (req, res) => {
+  const {id} = req.params;
+  rooms.destroy({where: {id}}).catch(() => {
+    res.send({
+      message: 'failed',
+      reason: 'the data is not exist'
+    })
+  })
+};
