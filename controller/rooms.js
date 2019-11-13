@@ -57,10 +57,15 @@ exports.updateRoom = (req, res) => {
 
 exports.deleteRoom = (req, res) => {
   const {id} = req.params;
-  rooms.destroy({where: {id}}).catch(() => {
+  rooms.destroy({where: {id}}).then(() => {
     res.send({
-      message: 'failed',
-      reason: 'the data is not exist'
+      message: 'success',
+      reason: 'the customer data is deleted'
+    }).catch(() => {
+      res.send({
+        message: 'failed',
+        reason: 'the data is not exist'
+      })
     })
   })
 };
