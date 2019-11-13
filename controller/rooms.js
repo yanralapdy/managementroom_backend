@@ -60,7 +60,7 @@ exports.deleteRoom = (req, res) => {
   rooms.destroy({where: {id}}).then(() => {
     res.send({
       message: 'success',
-      reason: 'the customer data is deleted'
+      message1: 'the room data is deleted'
     }).catch(() => {
       res.send({
         message: 'failed',
