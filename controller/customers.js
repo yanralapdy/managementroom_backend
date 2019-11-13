@@ -60,10 +60,15 @@ exports.updateCustomer = (req, res) => {
 
 exports.deleteCustomer = (req, res) => {
   const {id} = req.params;
-  customers.destroy({where: {id}}).catch(() => {
+  customers.destroy({where: {id}}).then(() => {
     res.send({
-      message: 'failed',
-      reason: 'the data is not exist'
+      message: 'success',
+      reason: 'the customer data is deleted'
+    }).catch(() => {
+      res.send({
+        message: 'failed',
+        reason: 'the data is not exist'
+      })
     })
   })
 };
